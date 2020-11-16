@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 8080;
 
 const recipes = [
     { "foods" : [
@@ -17,12 +17,8 @@ const recipes = [
     ]}
 ]
 
-app.get('/', (req, res) => {
+app.get('/api/recipes', (req, res) => {
     res.send(recipes[0]);
-})
-
-app.get('/api/:name', (req, res) => {
-    res.send('Hello ' + req.params.name + '!');
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`))

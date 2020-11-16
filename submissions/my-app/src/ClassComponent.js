@@ -4,16 +4,21 @@ import Recipe from './Recipe.js';
 class ClassComponent extends React.Component {
 
     render() {
-        let mappedRecipes = []
-        fetch('http://localhost:3000/')
-        .then(response => response.json())
-        .then(data => {
-            mappedRecipes = data.foods.map(item => <Recipe name={item.name} items={item.items}/>);
+        var recipes = []
+
+        fetch('http://localhost:8080')
+            .then(response => response.json())
+            .then((data) => {
+                recipes = data.foods.map(item => <Recipe name={item.name} items={item.items}/>);
+            })
+            .catch((err) => {
+                console.log(err)
         })
+
         return (
             <div>
                 <h1> Showing all recipes! </h1>
-                {mappedRecipes}
+                {recipes}
             </div>
         )
     }

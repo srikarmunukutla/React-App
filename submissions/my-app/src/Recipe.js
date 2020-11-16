@@ -4,8 +4,8 @@ function Recipe(props) {
 
     return (
         <div>
-            <h1> Food Name: {props.name}</h1>
-            <h3> Items: {props.items}</h3>
+            <h3> Food Name: {props.name}</h3>
+            <h4> Items: {props.items}</h4>
         </div>
     );
 }
